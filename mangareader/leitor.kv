@@ -1,0 +1,230 @@
+#:import Toolbar kivymd.toolbar.Toolbar
+#:import ThemeManager kivymd.theming.ThemeManager
+#:import MDNavigationDrawer kivymd.navigationdrawer.MDNavigationDrawer
+#:import NavigationLayout kivymd.navigationdrawer.NavigationLayout
+#:import NavigationDrawerDivider kivymd.navigationdrawer.NavigationDrawerDivider
+#:import NavigationDrawerToolbar kivymd.navigationdrawer.NavigationDrawerToolbar
+#:import NavigationDrawerSubheader kivymd.navigationdrawer.NavigationDrawerSubheader
+#:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
+#:import MDBottomNavigationItem kivymd.tabs.MDBottomNavigationItem
+#:import MDCard kivymd.card.MDCard
+#:import SmartTile kivymd.grid.SmartTile
+#:import MDSeparator kivymd.card.MDSeparator
+#:import MDBottomNavigation kivymd.tabs.MDBottomNavigation
+#:import MDBottomNavigationItem kivymd.tabs.MDBottomNavigationItem
+#:import MDDropdownMenu kivymd.menu.MDDropdownMenu
+
+
+<MDMenuItem>:
+	on_release:app.acao(self.text)
+
+NavigationLayout:
+    id: nav_layout
+    MDNavigationDrawer:
+        id: nav_drawer
+        NavigationDrawerToolbar:
+            title: "Manga Reader 0.0"
+        NavigationDrawerIconButton:
+            text: 'MangaReader'
+    BoxLayout:
+    	orientation:'vertical'
+        ScreenManager:
+        	transition:app.trans
+        	id:sm
+        	Screen:
+        		name:'tela1'
+        		BoxLayout:
+        			orientation:'vertical'
+        			canvas:
+		        		Color:
+		        			rgba:0.220, 0.220, 0.220, 1
+		        		Rectangle:
+		        			pos:self.pos
+		        			size:self.size
+        			Toolbar:
+    					id: toolbar
+           			 title:'MangaReader Ap'
+         			   md_bg_color: get_color_from_hex(colors['Grey']['600'])
+           			 background_palette: 'Primary'
+           			 background_hue: '500'
+           			 left_action_items: [['menu', lambda x: app.root.toggle_nav_drawer()]]
+           			 right_action_items: [['dots-vertical', lambda x:MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)]]
+	        		ScrollView:
+		        		BoxLayout:
+		        			orientation:'vertical'
+		        			size_hint_y:None
+		        			height:self.minimum_height
+		        			BoxLayout:
+		        				size_hint_y:None
+		        				height:385
+		        				BoxLayout:
+		        					padding:10
+		        					orientation:'vertical'
+		        					BoxLayout:
+			        					SmartTile:
+			        						on_release:app.fun()
+			        						mipmap: True
+			        						source: 'Cap/anime.jpg'
+	                            			Label:
+	                            				size_hint_y:None
+	                            				height:75
+	                            				text:'     Oyasumi punpun'
+			        			Label:
+			        			Label:
+			Screen:
+	        	name:'punpun'
+	        	BoxLayout:
+	        		orientation:'vertical'
+	        		Toolbar:
+	        			id: toolbar
+		      		  title:'Oyasumi Punpun'
+		        	    md_bg_color: get_color_from_hex(colors['Grey']['600'])
+		        	    background_palette: 'Primary'
+		       	     background_hue: '500'
+		       	     left_action_items: [['arrow-left', lambda x: app.tela1()]]
+		       	     right_action_items: [['dots-vertical', lambda x:MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)]]
+		        	MDBottomNavigation:
+		        		MDBottomNavigationItem:
+		        			name:'info.'
+		        			text:'Info.'
+		        			BoxLayout:
+		        				canvas:
+		        					Color:
+		        						rgba:0.220, 0.220, 0.220, 1
+		        					Rectangle:
+		        						pos:self.pos
+		        						size:self.size
+				        		BoxLayout:
+				        			orientation:'vertical'
+				        			size_hint_x:None
+				        			width:200
+				        			BoxLayout:
+				        				orientation:'vertical'
+				        				Label:
+				        					size_hint_y:None
+				        					font_size:'19sp'
+				        					text:'   Oyasumi Punpun'
+					        			Image:
+					        				source:'Cap/anime.jpg'
+				        			ScrollView:
+				        				BoxLayout:
+				        					padding:10
+				        					spacing:10
+				        					orientation:'vertical'
+				        					size_hint_y:None
+				        					height:self.minimum_height
+				        					Label:
+				        						text:'Genero:'
+				        					Label:
+						        			MDRaisedButton:
+						        				text:'      Drama      '
+						        			MDRaisedButton:
+						        				text:'      Seinen      '
+						        			MDRaisedButton:
+						        				text:'Psicologico'
+						MDBottomNavigationItem:
+		        			name:'Caps'
+		        			text:'Caps'
+		        			BoxLayout:
+		        				canvas:
+		        					Color:
+		        						rgba:0.1515, 0.1515, 0.1515, 1
+		        					Rectangle:
+		        						size:self.size
+		        						pos:self.pos
+			        			ScrollView:
+			        				BoxLayout:
+			        					orientation:'vertical'
+			        					size_hint_y:None
+			        					height:self.minimum_height
+			        					BoxLayout:
+			        						size_hint_y:None
+			        						height:125
+			        						canvas:
+			        							Color:
+			        								rgba:0.11, 0.11, 0.11, 1
+			        							Rectangle:
+			        								pos:self.pos
+			        								size:self.size
+			        						Label:
+			        							text:'Capitulo 01'
+			        						MDFloatingActionButton:
+			        							on_release:app.root.ids.sm.current = 'episodio01'
+			        							id:play
+			        							icon:'play'
+			        							size:100, 100
+			        							opposite_colors: True
+			        							elevation_normal:10
+			        							pos_hint:{'center_x': 0.3, 'center_y': 0.50}
+			        					BoxLayout:
+			        						size_hint_y:None
+			        						height:125
+			        						canvas:
+			        							Color:
+			        								rgba:0.11, 0.11, 0.11, 1
+			        							Rectangle:
+			        								pos:self.pos
+			        								size:self.size
+			        						Label:
+			        							text:'Capitulo 02'
+			        						MDFloatingActionButton:
+			        							on_release:app.root.ids.sm.current = 'episodio02'
+			        							id:play
+			        							icon:'play'
+			        							size:100, 100
+			        							opposite_colors: True
+			        							elevation_normal:10
+			        							pos_hint:{'center_x': 0.3, 'center_y': 0.50}
+			 #ep1
+			Screen:
+				name:'episodio01'
+				BoxLayout:
+					orientation:'vertical'
+					Toolbar:
+		    			id: toolbar
+		   		     title:'Oyasumi Punpun'
+		    		    md_bg_color: get_color_from_hex(colors['Grey']['600'])
+		       	     background_palette: 'Primary'
+		     		   background_hue: '500'
+		     		   left_action_items: [['arrow-left', lambda x: app.fun()]]
+		     		   right_action_items: [['dots-vertical', lambda x:MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)]]
+					ScrollView:
+						BoxLayout:
+							id:ep1
+							orientation:'vertical'
+							size_hint_y:None
+							height:self.minimum_height			        						
+			#ep2
+			Screen:
+				name:'episodio02'
+				BoxLayout:
+					orientation:'vertical'
+					Toolbar:
+		    			id: toolbar
+		   		     title:'Oyasumi Punpun'
+		    		    md_bg_color: get_color_from_hex(colors['Grey']['600'])
+		       	     background_palette: 'Primary'
+		     		   background_hue: '500'
+		     		   left_action_items: [['arrow-left', lambda x: app.fun()]]
+		     		   right_action_items: [['dots-vertical', lambda x:MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)]]
+					ScrollView:
+						BoxLayout:
+							id:ep2
+							orientation:'vertical'
+							size_hint_y:None
+							height:self.minimum_height
+					
+	        
+
+
+
+<Box>:
+	size_hint_y:None
+	height:790.5
+	Scatter:
+		do_translation:False
+		Image:
+			id:ima
+			size:790, 790
+			pos:-125, -125
+			source:''
