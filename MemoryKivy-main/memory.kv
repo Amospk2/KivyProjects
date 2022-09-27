@@ -1,0 +1,318 @@
+<Tela>:
+
+    BoxLayout:
+        
+        orientation:"vertical"
+        canvas.before:
+            Color:
+                rgba:0.234, 0.545, 0.887, 1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+
+        BoxLayout:
+            size_hint_y:None
+            height:30
+            id:toolbar
+            canvas.before:
+                Color:
+                    rgba:1, 0.325, 0, 1
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+            Label:
+                id:ponto
+                color:0, 0, 0, 1
+
+
+
+        BoxLayout:
+
+            BoxLayout:
+                padding:10
+                orientation:"vertical"
+                id:ward
+                Botao01:
+                    id:One
+                    on_press:
+                        app.click(1)
+
+
+
+            BoxLayout:
+                padding:10
+                orientation:"vertical"
+                id:wardtwo
+                    
+                Botao02:
+                    id:Two
+
+                    on_press:app.click(2)
+
+
+            BoxLayout:
+                padding:10
+                orientation:"vertical"
+                id:wardthree
+                    
+                    
+                Botao03:
+                    id:Three
+
+                    on_press:app.click(3)
+
+
+
+            BoxLayout:
+                padding:10
+                id:wardfour
+                orientation:"vertical"
+
+                    
+                    
+                Botao04:
+                    id:Four
+
+                    on_press:app.click(4)
+
+
+
+        BoxLayout:
+            BoxLayout:
+                padding:10
+                id:wardfive
+                orientation:"vertical"
+                    
+
+                Botao05:
+                    id:Five
+                    on_press:app.click(5)
+
+
+            BoxLayout:
+                padding:10
+                id:wardsix
+                orientation:"vertical"
+                    
+
+                    
+                Botao06:
+                    id:Six
+                    on_press:app.click(6)
+
+
+            BoxLayout:
+                padding:10
+                orientation:"vertical"
+                id:wardseven
+                    
+
+                Botao07:
+                    id:Seven
+                    on_press:app.click(7)
+
+
+                    
+            BoxLayout:
+                padding:10
+                id:wardeight
+                orientation:"vertical"
+                    
+
+                    
+                Botao08:
+                    id:Eight
+                    on_press:app.click(8)
+
+        BoxLayout:
+            BoxLayout:
+                padding:10
+                id:wardnine
+                orientation:"vertical"
+
+                    
+                Botao09:
+                    id:Nine
+                    on_press:app.click(9)
+
+            BoxLayout:
+                padding:10
+                id:wardteen
+                orientation:"vertical"
+                    
+
+                    
+                Botao10:
+                    id:Teen
+                    on_press:app.click(10)
+
+
+            BoxLayout:
+                padding:10
+                id:wardeleven
+                orientation:"vertical"
+                
+
+                    
+                Botao11:
+                    id:Eleven
+                    on_press:app.click(11)
+
+            
+            BoxLayout:
+                padding:10
+                id:wardtwelve
+                orientation:"vertical"
+                     
+                Botao12:
+                    id:Twelve
+                    on_press:app.click(12)
+
+                    
+        BoxLayout:
+            padding:5
+            canvas:
+                Color:
+                    rgba:1, 0, 0, 1
+                Rectangle:
+                    pos:self.pos
+                    size:self.size
+            size_hint_y:None
+            height:80
+            BotaoM:
+                text:"Restart"
+                on_press:app.restartOn()
+
+            Widget:
+                size_hint_x:None
+                width:10
+            BotaoM:
+                on_press:app.stop()
+                text:"Quit"
+
+    
+
+
+<BotaoM@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:0, 0, 0, 0.4
+		Rectangle:
+			pos:self.pos
+			size:self.size
+
+<Botao01@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source01
+
+<Botao02@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source02
+
+
+<Botao03@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source03
+
+<Botao04@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source04
+
+<Botao05@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source05
+
+
+<Botao06@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source06
+
+<Botao07@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source07
+
+<Botao08@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source08
+
+
+<Botao09@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source09
+
+<Botao10@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source10
+
+<Botao11@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source11
+
+
+<Botao12@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:1, 1, 1, 0.8
+		Rectangle:
+			pos:self.pos
+			size:self.size
+            source:app.image_source12
+
+
+

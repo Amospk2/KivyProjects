@@ -1,0 +1,184 @@
+#:import MDNavigationDrawer kivymd.navigationdrawer.MDNavigationDrawer
+#:import NavigationLayout kivymd.navigationdrawer.NavigationLayout
+#:import NavigationDrawerDivider kivymd.navigationdrawer.NavigationDrawerDivider
+#:import MDDropdownMenu kivymd.menu.MDDropdownMenu
+
+<MDMenuItem>:
+	on_release:app.acao(self.text)
+	
+NavigationLayout:
+    MDNavigationDrawer:
+    	NavigationDrawerSubheader:
+    		text:'Chat 0.1'
+        NavigationDrawerToolbar:
+        	height:250
+            canvas:
+        		Color:
+        			rgba:1, 1, 1, 1
+    			Rectangle:
+        			size:self.size
+        			pos:self.pos
+        			source:"Ima.jpeg"
+        NavigationDrawerIconButton:
+        	text:'SalaChat'
+	BoxLayout:
+        orientation: 'vertical'
+        Toolbar:
+            id: toolbar
+            title: 'Chat 0.1'
+            md_bg_color: get_color_from_hex(colors['Grey']['600'])
+            left_action_items: [['menu', lambda x: app.root.toggle_nav_drawer()]]
+            right_action_items: [['dots-vertical', lambda x:MDDropdownMenu(items=app.menu_items, width_mult=4).open(self)]]
+        ScreenManager:
+        	transition:app.trans
+            id:sm
+            Screen:
+            	name:'S0'
+            	BoxLayout:
+            		orientation:'vertical'
+            		canvas:
+            			Color:
+            				rgba:0.123, 0.650, 0, 1
+            			Rectangle:
+            				pos:self.pos
+            				size:self.size
+            		Widget:
+            		Label:
+            			text:'Informe seu usuario.'
+            			size_hint_y:None
+            			height:100
+            		TextInput:
+            			id:ti
+            			size_hint_y:None
+            			height:100
+	            	Button:
+	            		text:'login'
+	            		size_hint_y:None
+	            		height:100
+	            		on_release:app.aute()
+            		Widget:
+            Skreen:
+            	name:'S1'
+            	BoxLayout:
+            		canvas:
+            			Color:
+							rgba:0.1, 0.1, 0.1, 1
+						Rectangle:
+							pos:self.pos
+							size:self.size
+            		orientation:'vertical'
+            		ScrollView:
+            			BoxLayout:
+            				orientation:'vertical'
+            				id:box
+            				size_hint_y:None
+            				height:self.minimum_height
+            		BoxLayout:
+            			id:bi
+            			orientation:'vertical'
+            			size_hint_y:None
+            			height:80
+            			BoxLayout:
+            				Button:
+            					text:'sinc'
+            					on_release:app.sinc()
+	            			TextInput:
+	            				id:TI
+	            				size_hint_x:None
+	            				width:400
+	            				on_focus:app.focus()
+	            			Button:
+	            				text:'send'
+	            				on_release:app.texto()
+            			Widget:
+            				id:wi
+            				size_hint_y:None
+            				height:0
+            Screen:
+            	name:'SH'
+            	Button:
+        		
+        		
+<Mensagem>:
+	size_hint_y:None
+	height:110
+	Widget:
+		size_hint_x:None
+		width:30
+	BoxLayout:
+		canvas:
+			Color:
+				rgba:0, 0, 0.88, 1
+			Rectangle:
+				size:self.size
+				pos:self.pos
+		orientation:'vertical'
+		Widget:
+			size_hint_y:None
+			height:1
+			canvas:
+				Color:
+					rgba:1, 1, 1, 1
+				Rectangle:
+					size:self.size
+					pos:self.pos
+		BoxLayout:
+			orientation:'vertical'
+			Label:
+				size_hint_y:None
+				height:25
+		        text:app.root.ids.ti.text + ':'
+		    Label:
+		    	id:lab
+		    	text:''    	
+		Widget:
+			size_hint_y:None
+			height:1
+			canvas:
+				Color:
+					rgba:1, 1, 1, 1
+				Rectangle:
+					size:self.size
+					pos:self.pos
+					
+<Mensagem2>:
+	size_hint_y:None
+	height:110
+	BoxLayout:
+		canvas:
+			Color:
+				rgba:0.88, 0, 0, 1
+			Rectangle:
+				size:self.size
+				pos:self.pos
+		orientation:'vertical'
+		Widget:
+			size_hint_y:None
+			height:1
+			canvas:
+				Color:
+					rgba:1, 1, 1, 1
+				Rectangle:
+					size:self.size
+					pos:self.pos
+		BoxLayout:
+			orientation:'vertical'
+			Label:
+				size_hint_y:None
+				height:25
+				id:us
+		    Label:
+		    	id:lab
+		    	text:''    	
+		Widget:
+			size_hint_y:None
+			height:1
+			canvas:
+				Color:
+					rgba:1, 1, 1, 1
+				Rectangle:
+					size:self.size
+					pos:self.pos					
+	Widget:
+		size_hint_x:None
+		width:30
